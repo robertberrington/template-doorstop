@@ -225,24 +225,24 @@ clean-all: clean .clean-env
 
 .PHONY: .prj_dir-exists
 .prj_dir-exists:
-	@if [ -d "$(PRJ_DIR)" ];         \
-	then                                          \
-		echo Project Directory exists...;        \
-	else                                          \
-		echo ERROR: Project Directory does NOT exists!;   \
-		exit -1;                                  \
+	@if [ -d "$(PRJ_DIR)" ];                            \
+	then                                                \
+		echo Project Directory exists...;               \
+	else                                                \
+		echo ERROR: Project Directory does NOT exists!; \
+		exit -1;                                        \
 	fi;
 
 .PHONY: .git-no-changes
 .git-no-changes:
-	@if git diff-index --name-status --exit-code HEAD;          \
-	then                                          \
-		echo Git working copy is clean...;        \
-	else                                          \
-		echo ;                                    \
-		echo ERROR: Git working copy is dirty!;   \
-		echo Commit your changes and try again.;  \
-		exit -1;                                  \
+	@if git diff-index --name-status --exit-code HEAD; \
+	then                                               \
+		echo Git working copy is clean...;             \
+	else                                               \
+		echo ;                                         \
+		echo ERROR: Git working copy is dirty!;        \
+		echo Commit your changes and try again.;       \
+		exit -1;                                       \
 	fi;
 
 .PHONY: live
